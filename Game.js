@@ -169,7 +169,7 @@ function runAnimation() {
         player.src = `CoderBoost.png`;
     }
     else if (playerState === 'damage') {
-        player.src = `CoderDamage.PNG`;
+        player.src = `CoderDamage.png`;
     }
     else {
         playerFrame = playerFrame === 1 ? 2 : 1;
