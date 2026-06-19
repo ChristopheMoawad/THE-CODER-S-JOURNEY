@@ -1,0 +1,157 @@
+body {
+    font-size: 1vw;;
+    background-color: black;
+    color: green;
+    font-family: 'Consolas', 'Courier New', monospace;
+    padding: 2vw 6vw 2vw 6vw;
+    line-height: 1.5em;
+}
+
+h1 {
+    font-size: 3vw;
+    margin-bottom: 0.5em;
+    color: greenyellow;
+    margin: 0 auto 1rem auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 2vw;
+    margin-bottom: 0.5em;
+    color: lightgreen;
+    margin: 0 auto 1rem auto;
+    text-align: left;
+    font-weight: bold;
+}
+
+.code {
+    display: block;
+    width: 40vw;
+    margin-left: 5em;
+    background-color: #1e1e1e;    
+    padding: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0.2em solid #3c3c3c;    
+    border-radius: 10px;
+    color: #d4d4d4;                   
+}
+
+pre {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    white-space: pre-wrap; /* Preserve whitespace and allow wrapping */
+    word-wrap: break-word; /* Allow long words to skip to next line */
+}
+
+
+.nf {
+    color: #dcdcaa;  
+}
+
+.cp {
+    color: #569cd6;
+}
+
+/* VS Code purple for keywords like const/let/if/for */
+.k {
+    color: #c586c0;  
+}
+
+/* Number literals */
+.kw {
+    color: #b5cea8;  
+}
+
+/* Elements */
+.nt {
+    color: #569cd6;
+    font-weight: normal;
+}
+
+/* Method calls and identifiers (variable names) */
+.na {
+    color: #9cdcfe;  
+}
+
+/* Operators = > < + * etc */
+.o {
+    color: #d4d4d4;   
+}
+
+/* String values */
+.s {
+    color: #ce9178;  
+}
+
+/* Comments */
+.comment {
+    color: #6a9955;  
+    font-style: italic;
+}
+
+/* Punctuation: ( ) { } [ ] . , ; */
+.p {
+    color: #808080;  
+}
+
+#BackButton {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 5vw;
+    height: 3vh;
+    background-color: black;
+    border: 0.2em solid grey;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+#BackButton:Hover {
+    background-color: rgb(236, 202, 8);
+    border: 0.2em solid darkgoldenrod;
+    color: black;
+    font-size: 1.1vw;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 3vw;
+        padding: 5vw 10vw;
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+
+    h2 {
+        font-size: 4vw;
+    }
+
+    .code {
+        width: 60vw;
+        font-size: 2.5vw;
+    }
+}
+
+@media (min-width: 600px) {
+    body {
+        font-size: 1vw;
+    }
+
+    h1 {
+        font-size: 3vw;
+    }
+
+    h4 {
+        font-size: 2vw;
+    }
+
+    .code {
+        width: 40vw;
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="MainMenu.css">
+    <script src="MainMenu.js" defer=""></script>
+    <title>Main Menu</title>
+  </head>
+
+<body>
+  <div id="AnimatedBackground">
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+    <div class="glitch-line"></div>
+  </div>
+
+  <div id="GameTitleContainer">
+    <div id="TitleBackdrop">
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+      <div class="glitch-line"></div>
+    </div>
+    <img src="Gametitleblack.png" id="GameTitle" alt="Game Title">
+  </div>
+
+  <button id="HelpButton">?</button>
+<div id="HelpMenu">
+    <button id="BackButton">✕</button>
+    <div id="HelpContent">
+
+        <h2>⚔️ How to Play</h2>
+
+        <div class="help-section">
+            <h3>🎮 Controls</h3>
+            <p>Scroll or swipe through the action cards on top of the player. The <span class="highlight">highlighted card</span> in the center is selected. Click it to use it.</p>
+        </div>
+
+        <div class="help-section">
+            <h3>⚡ Combat & Energy</h3>
+            <p>Each turn you choose to <strong>Attack</strong>, <strong>Heal</strong>, or <strong>Skip</strong>. Every attack costs energy — if you run out, you can't attack!</p>
+            <ul>
+                <li>You recover <strong>+2 energy</strong> automatically after each enemy turn.</li>
+                <li>Use <strong>Healers</strong> to restore HP or recharge energy.</li>
+                <li>Watch your health bar — it turns <span class="bar-orange">orange</span> below 60% and <span class="bar-red">red</span> below 30%!</li>
+            </ul>
+        </div>
+
+        <div class="help-section">
+            <h3>📈 Progression</h3>
+            <ul>
+                <li>Enemies get stronger as you advance — higher HP and damage.</li>
+                <li>New attacks and healers unlock at levels 4 and 7.</li>
+            </ul>
+        </div>
+
+        <div class="help-section">
+            <h3>🏆 Records</h3>
+            <p>Your <strong>fastest clear time</strong> is saved for each enemy you defeat. Try to beat your record! Times are shown as <strong>mm:ss</strong> — the clock pauses when you open the pause menu.</p>
+        </div>
+
+        <p>The most important thing is to have fun and enjoy the game!</p>
+        <p>~Christophe Moawad</p>
+    </div>
+</div>
+
+  <div id="MainMenuContainer">
+    <div id="InfoContainer">
+
+      <div id="HtmlHeader" class="Header">
+        <p style="transform: translateY(-40%);">HTML</p>
+        <img src="HtmlIcon.png" alt="HTML icon">
+      </div>
+      <div id="CssHeader" class="Header">
+        <p style="transform: translateY(-40%);">CSS</p>
+        <img src="CSSIcon.png" alt="CSS icon">
+      </div>
+      <div id="JsHeader" class="Header">
+        <p style="transform: translateY(-40%);">JavaScript</p>
+        <img src="JsIcon.png" alt="JS icon">
+      </div>
+
+      <div class="description">
+        <p><strong>HTML</strong></p>
+        <p>HTML stands for HyperText Markup Language.<br>
+           It is the standard markup language for creating Web pages.<br>
+           It describes the structure of a Web page.</p>
+      </div>
+      <div class="description">
+        <p><strong>CSS</strong></p>
+        <p>CSS stands for Cascading Style Sheets.<br>
+           It describes how HTML elements should be displayed.</p>
+      </div>
+      <div class="description">
+        <p><strong>JavaScript</strong></p>
+        <p>JavaScript is a programming language used to create interactive web pages.<br>
+           It adds dynamic content, validates forms, and creates animations.</p>
+      </div>
+
+    </div>
+
+    <div id="PlayerProgress">
+      <div id="ProgressBar"></div>
+      <img id="Trophy" src="Trophy.png" alt="Trophy">
+    </div>
+
+  </div>
+
+  <input type="text" id="UsernameInput" placeholder="Enter your username">
+  <button id="PlayButton">Play</button>
+
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="CoursesMenu.css">
+    <script src="JSMenu.js" defer></script>
+    <title> JavaScript </title>
+</head>
+
+<body>
+    <div id = "Structure" style="display:none;">
+        <h1>JavaScript Structure</h1>
+        <p>JavaScript is a high-level, interpreted programming language that is commonly used for web development. It is a versatile language that can be used to create interactive and dynamic web pages, as well as server-side applications and mobile apps.</p>
+        <p>JavaScript code is normally written in a text editor and saved with a .js file extension. To execute JavaScript code, it needs to be included in an HTML page using the <span class = "p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span> tag in the <span class = "p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span> section of the HTML document. For example:</p>
+        <div class="code"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">"en"</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">"utf-8"</span> <span class="p">/&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">"viewport"</span> <span class="na">content</span><span class="o">=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">"stylesheet"</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/css"</span> <span class="na">href</span><span class="o">=</span><span class="s">"style.css"</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"script.js"</span> <span class="na">defer</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span> My Webpage <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="cp">&lt;!-- Your HTML content goes here --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span></pre>
+    </div>
+    <p>This code snippet can be used as a template for all HTML pages.</p>
+    <p>To verify its functionality, you can run the JavaScript code in your browser's console.</p>
+    <p>To open the console, you can use the following keyboard shortcuts:</p>
+    <ul>
+        <li>Chrome/Firefox: Press <kbd>F12</kbd> or <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd></li>
+        <li>Safari: Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd></li>
+    </ul>
+    <p>Or simply right-click on the page and select "Inspect" to open the developer tools.</p>
+    <h2>JavaScript Basics</h2>
+    <p>Here are some important notions of JavaScript:</p>
+    <ul>
+        <li>Variables: Variables are used to store data in JavaScript. They can be declared using the <span class="k">var</span>, <span class="k">let</span>, or <span class="k">const</span> keywords. Prefer <span class="k">const</span> by default, use <span class="k">let</span> if you need to reassign, and avoid <span class="k">var</span> which has a wider, less predictable scope. For example:
+        <div class="code"><pre><span class="k">const</span> city <span class="o">=</span> <span class="s">'Paris'</span><span class="p">;</span>       <span class="comment">// cannot be reassigned</span>
+<span class="k">let</span> score <span class="o">=</span> <span class="kw">0</span><span class="p">;</span>              <span class="comment">// can be reassigned</span>
+score <span class="o">=</span> <span class="kw">42</span><span class="p">;</span>
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>city<span class="p">,</span> score<span class="p">);</span>  <span class="comment">// Paris 42</span></pre></div></li>
+
+        <li>Strings: Strings can be declared with single or double quotes. The most powerful syntax is <strong>template literals</strong> (backtick quotes), which let you embed variables and expressions directly inside a string using <span class="k">${...}</span>. For example:
+        <div class="code"><pre><span class="k">const</span> name <span class="o">=</span> <span class="s">'Alice'</span><span class="p">;</span>
+<span class="k">const</span> age <span class="o">=</span> <span class="kw">25</span><span class="p">;</span>
+
+<span class="comment">// Old way: concatenation</span>
+<span class="k">const</span> msg1 <span class="o">=</span> <span class="s">'Hello, '</span> <span class="o">+</span> name <span class="o">+</span> <span class="s">'!'</span><span class="p">;</span>
+
+<span class="comment">// Preferred: template literal</span>
+<span class="k">const</span> msg2 <span class="o">=</span> <span class="s">`Hello, ${name}! You are ${age} years old.`</span><span class="p">;</span>
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>msg2<span class="p">);</span>  <span class="comment">// Hello, Alice! You are 25 years old.</span></pre></div></li>
+
+        <li>Conditionals: Use <span class="k">if</span>, <span class="k">else if</span>, and <span class="k">else</span> to run code based on conditions. Variables declared with <span class="k">let</span> or <span class="k">const</span> inside a block <span class="p">{ }</span> only exist within that block — this is called <em>block scope</em>. For example:
+        <div class="code"><pre><span class="k">const</span> temperature <span class="o">=</span> <span class="kw">18</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span>temperature <span class="o">&gt;</span> <span class="kw">25</span><span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">'Hot'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else if</span> <span class="p">(</span>temperature <span class="o">&gt;=</span> <span class="kw">15</span><span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">'Mild'</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">'Cold'</span><span class="p">);</span>
+<span class="p">}</span></pre></div></li>
+
+        <li>Loops: The <span class="k">for</span> loop repeats code a set number of times. To iterate over all elements of an array, the <span class="k">for...of</span> loop is simpler and more readable. For example:
+        <div class="code"><pre><span class="comment">// Classic for loop</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">let</span> i <span class="o">=</span> <span class="kw">0</span><span class="p">;</span> i <span class="o">&lt;</span> <span class="kw">3</span><span class="p">;</span> i<span class="o">++</span><span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">`i = ${i}`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="comment">// for...of loop over an array</span>
+<span class="k">const</span> colors <span class="o">=</span> <span class="p">[</span><span class="s">'red'</span><span class="p">,</span> <span class="s">'green'</span><span class="p">,</span> <span class="s">'blue'</span><span class="p">];</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">const</span> color <span class="k">of</span> colors<span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>color<span class="p">);</span>
+<span class="p">}</span></pre></div></li>
+
+        <li>Arrays: Arrays are ordered lists that can hold any mix of types. They are 0-indexed and grow dynamically. Declaring an array as <span class="k">const</span> prevents reassignment of the variable, but you can still modify its contents. For example:
+        <div class="code"><pre><span class="k">const</span> fruits <span class="o">=</span> <span class="p">[</span><span class="s">'apple'</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">,</span> <span class="s">'cherry'</span><span class="p">];</span>
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>fruits<span class="p">[</span><span class="kw">0</span><span class="p">]);</span>       <span class="comment">// apple</span>
+fruits<span class="o">.</span><span class="nf">push</span><span class="p">(</span><span class="s">'date'</span><span class="p">);</span>          <span class="comment">// add to end</span>
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>fruits<span class="o">.</span>length<span class="p">);</span>   <span class="comment">// 4</span></pre></div></li>
+
+        <li>Objects (Dictionaries): JavaScript objects are collections of key/value pairs called <em>properties</em>. You access them with dot notation or bracket notation. Properties can be added dynamically, and objects can be nested inside each other. For example:
+        <div class="code"><pre><span class="k">const</span> player <span class="o">=</span> <span class="p">{</span>
+    name<span class="o">:</span> <span class="s">'Hero'</span><span class="p">,</span>
+    level<span class="o">:</span> <span class="kw">5</span><span class="p">,</span>
+    position<span class="o">:</span> <span class="p">{</span> x<span class="o">:</span> <span class="kw">10</span><span class="p">,</span> y<span class="o">:</span> <span class="kw">3</span> <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>player<span class="o">.</span>name<span class="p">);</span>            <span class="comment">// Hero</span>
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>player<span class="o">.</span>position<span class="o">.</span>x<span class="p">);</span>     <span class="comment">// 10</span>
+player<span class="o">.</span>health <span class="o">=</span> <span class="kw">100</span><span class="p">;</span><span class="comment">// add a property dynamically</span></pre></div></li>
+
+        <li>Functions: Functions are reusable blocks of code. They can be defined with the <span class="k">function</span> keyword or as arrow functions using <span class="k">=&gt;</span>. Arrow functions are preferred for short, inline logic. Functions are treated as regular values and can be stored in variables or objects. For example:
+        <div class="code"><pre><span class="comment">// Classic declaration</span>
+<span class="k">function</span> <span class="nf">greet</span><span class="p">(</span>name<span class="p">) {</span>
+    <span class="k">return</span> <span class="s">`Hello, ${name}!`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="comment">// Arrow function</span>
+<span class="k">const</span> square <span class="o">=</span> <span class="p">(</span>x<span class="p">)</span> <span class="o">=&gt;</span> x <span class="o">*</span> x<span class="p">;</span>
+
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">greet</span><span class="p">(</span><span class="s">'Alice'</span><span class="p">));</span>  <span class="comment">// Hello, Alice!</span>
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="nf">square</span><span class="p">(</span><span class="kw">5</span><span class="p">));</span>       <span class="comment">// 25</span></pre></div></li>
+    </ul>
+    </div>
+
+    <div id="Events" style="display: none;">
+    <h1>JavaScript Events</h1>
+    <p>Classical programming runs functions one after the other in a predictable order. But when a program needs to react to a user — a click, a mouse movement, a key press — the timing and number of those interactions cannot be predicted in advance. <strong>Event programming</strong> is the approach used to handle this.</p>
+
+    <p>Event programming relies on two things: a <strong>listener</strong>, which waits for a specific event to occur on an element, and a <strong>callback function</strong>, which is the code that runs in response when the event happens.</p>
+
+    <h2>Adding an Event Listener</h2>
+    <p>The function <span class="k">addEventListener</span> associates a listener and a callback to a DOM element. It takes two arguments: the event type as a string, and the callback function to call when that event occurs. For example:</p>
+
+    <div class="code"><pre><span class="comment">// HTML: &lt;h1&gt;Click on me!&lt;/h1&gt;</span>
+
+<span class="k">const</span> title <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'h1'</span><span class="p">);</span>
+title<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> actionClicked<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">actionClicked</span><span class="p">(</span>event<span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">'clicked'</span><span class="p">);</span>
+<span class="p">}</span></pre></div>
+
+    <p>Here, <span class="k">title</span> is the element being listened to. The listener waits for a <span class="s">'click'</span> event, and each time one occurs, <span class="nf">actionClicked</span> is called. The number and order of calls depend entirely on the user — they cannot be seen from the code itself.</p>
+
+    <h2>Modifying the DOM on Events</h2>
+    <p>A common response to an event is to modify the page itself — for instance, adding new elements to the DOM. Each click triggers the callback, so new elements accumulate with every interaction. For example:</p>
+
+    <div class="code"><pre><span class="comment">// HTML: &lt;h1&gt;Click on me!&lt;/h1&gt;  &lt;div class="container"&gt;&lt;/div&gt;</span>
+
+<span class="k">const</span> title <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'h1'</span><span class="p">);</span>
+title<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> actionClicked<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">actionClicked</span><span class="p">(</span>event<span class="p">) {</span>
+    <span class="k">const</span> newElement <span class="o">=</span> document<span class="o">.</span><span class="nf">createElement</span><span class="p">(</span><span class="s">'p'</span><span class="p">);</span>
+    newElement<span class="o">.</span>textContent <span class="o">=</span> <span class="s">'Clicked!'</span><span class="p">;</span>
+
+    <span class="k">const</span> container <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'.container'</span><span class="p">);</span>
+    container<span class="o">.</span><span class="nf">appendChild</span><span class="p">(</span>newElement<span class="p">);</span>
+<span class="p">}</span></pre></div>
+
+    <h2>Modifying CSS on Events</h2>
+    <p>JavaScript can also modify the appearance of an element in response to an event by adding or removing CSS classes. The <span class="k">.classList</span> property exposes two key methods: <span class="nf">.add()</span> to apply a class, and <span class="nf">.remove()</span> to take it away. This lets you define the visual states entirely in CSS, and simply toggle them from JavaScript. For example:</p>
+
+    <div class="code"><pre><span class="comment">// CSS: .highlighted { color: yellow; font-weight: bold; }</span>
+<span class="comment">// HTML: &lt;h1&gt;Click on me!&lt;/h1&gt;</span>
+
+<span class="k">const</span> title <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'h1'</span><span class="p">);</span>
+title<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> actionClicked<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">actionClicked</span><span class="p">(</span>event<span class="p">) {</span>
+    title<span class="o">.</span>classList<span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="s">'highlighted'</span><span class="p">);</span>    <span class="comment">// applies the CSS class</span>
+    <span class="comment">// title.classList.remove('highlighted'); // removes it</span>
+<span class="p">}</span></pre></div>
+
+    <p>A useful companion is <span class="nf">.toggle()</span>, which adds the class if absent and removes it if present — handy for on/off states like showing and hiding a menu.</p>
+
+    <h2>Remarks</h2>
+    <ul>
+        <li>You may encounter the syntax <span class="k">element.onclick = actionClicked</span>, which is also valid. However, it only allows one handler per event type on an element. <span class="k">addEventListener</span> is preferred as it supports multiple listeners on the same element.</li>
+        <li>The opposite of <span class="k">addEventListener</span> is <span class="k">removeEventListener</span>, which detaches an existing listener from an element.</li>
+        <li>JavaScript can handle many types of events, including: <span class="s">'click'</span>, <span class="s">'dblclick'</span>, <span class="s">'mouseover'</span>, <span class="s">'keydown'</span>, <span class="s">'keyup'</span>, <span class="s">'submit'</span>, <span class="s">'resize'</span>, and more.</li>
+    </ul>
+
+    <h2>Widgets</h2>
+    <p>A <strong>widget</strong> is a graphical element that can interact with the user — buttons, checkboxes, text entries, color pickers, and so on. HTML provides a set of basic widgets through the <span class="p">&lt;</span><span class="nt">input</span><span class="p">&gt;</span> tag, whose behavior can be finely controlled using JavaScript.</p>
+
+    <p>Widgets are selected from the DOM just like any other element, and events are attached to them with <span class="k">addEventListener</span>. A button listens for <span class="s">'click'</span>, while a text entry listens for <span class="s">'change'</span>, which fires when the user finishes editing and leaves the field. The current value of any input widget is accessible via <span class="k">.value</span>. For example:</p>
+
+    <div class="code"><pre><span class="comment">// HTML: &lt;input id="button" type="button" value="Click me"&gt;</span>
+<span class="comment">//       &lt;input id="textEntry" type="text"&gt;</span>
+
+<span class="k">const</span> button <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#button'</span><span class="p">);</span>
+button<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> buttonClicked<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">buttonClicked</span><span class="p">(</span>event<span class="p">) {</span>
+    <span class="k">const</span> textEntry <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#textEntry'</span><span class="p">);</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">`You typed: <span class="p">${</span>textEntry<span class="o">.</span>value<span class="p">}</span>`</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">const</span> textEntry <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#textEntry'</span><span class="p">);</span>
+textEntry<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'change'</span><span class="p">,</span> textModified<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">textModified</span><span class="p">(</span>event<span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">`Text modified: <span class="p">${</span>textEntry<span class="o">.</span>value<span class="p">}</span>`</span><span class="p">);</span>
+<span class="p">}</span></pre></div>
+    <p>The widget <span class="p">&lt;</span><span class="nt">input type="color"</span><span class="p">&gt;</span> lets the user pick a color interactively. It fires an <span class="s">'input'</span> event — rather than <span class="s">'change'</span> — every time the value is updated, giving a live, dynamic response. The selected color is available as a hex string via <span class="k">.value</span>, and can be applied directly to an element's inline style. For example:</p>
+    <div class="code"><pre><span class="comment">// HTML: &lt;span id="textInColor"&gt;Choose the color of this text.&lt;/span&gt;</span>
+<span class="comment">//       &lt;input id="colorInput" type="color"&gt;</span>
+
+<span class="k">const</span> textElement <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#textInColor'</span><span class="p">);</span>
+<span class="k">const</span> colorElement <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#colorInput'</span><span class="p">);</span>
+colorElement<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'input'</span><span class="p">,</span> changeColorAction<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">changeColorAction</span><span class="p">(</span>event<span class="p">) {</span>
+    textElement<span class="o">.</span>style<span class="o">.</span>color <span class="o">=</span> colorElement<span class="o">.</span>value<span class="p">;</span>
+<span class="p">}</span></pre></div>
+    <p>When writing content into a DOM element from JavaScript, you have two options. <span class="k">.textContent</span> treats the value as plain text — any HTML tags typed by the user are displayed as-is, never interpreted. <span class="k">.innerHTML</span> on the other hand parses the string as actual HTML, allowing tags to be rendered. For example:</p>
+    <div class="code"><pre><span class="comment">// HTML: &lt;input id="textEntry" type="text"&gt;</span>
+<span class="comment">//       &lt;span id="textRender"&gt;&lt;/span&gt;</span>
+
+<span class="k">const</span> textEntry <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#textEntry'</span><span class="p">);</span>
+textEntry<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'change'</span><span class="p">,</span> textModified<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">textModified</span><span class="p">(</span>event<span class="p">) {</span>
+    <span class="k">const</span> textRender <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'#textRender'</span><span class="p">);</span>
+    textRender<span class="o">.</span>textContent <span class="o">=</span> textEntry<span class="o">.</span>value<span class="p">;</span>  <span class="comment">// safe: treated as plain text</span>
+    <span class="comment">// textRender.innerHTML = textEntry.value; // interprets HTML tags</span>
+<span class="p">}</span></pre></div>
+    <p>While <span class="k">.innerHTML</span> is more powerful — it can generate rich HTML from a string — it is considered bad practice to pass user input directly into it. A user could inject arbitrary HTML or JavaScript, causing unexpected behavior. For instance, typing <span class="s">&lt;img src=x onerror=alert("Hello")&gt;</span> into a field rendered with <span class="k">.innerHTML</span> would trigger a popup. This is known as <strong>code injection</strong>. Though limited to the client side here, the same principle applied server-side can lead to serious security vulnerabilities. When in doubt, prefer <span class="k">.textContent</span>.</p>
+    </div>
+
+    <div id="Animations" style="display: none;">
+    <h1>JavaScript Animations</h1>
+    <p>Animating something on a webpage means repeatedly calling a function that updates and redraws the result over time — even when the user is not interacting. Each individual call produces a single <strong>frame</strong>. To give the impression of smooth, continuous motion, the animation loop must run at least 25 frames per second (fps), meaning each frame must complete in under 40ms. Screens typically refresh at 60fps, so there is no benefit in drawing faster than that.</p>
+
+    <h2>requestAnimationFrame</h2>
+    <p>JavaScript provides the built-in function <span class="nf">requestAnimationFrame</span> to handle animation loops. It takes a user-defined function as argument and calls it automatically as soon as the system is ready to draw the next frame, synchronized to the screen's refresh rate. The function receives the time elapsed since the loop began (in ms) as its parameter. For example:</p>
+
+    <div class="code"><pre><span class="nf">frame</span><span class="p">();</span>
+
+<span class="k">function</span> <span class="nf">frame</span><span class="p">(</span>currentTime<span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>currentTime<span class="p">);</span>   <span class="comment">// ms elapsed since loop start</span>
+    <span class="nf">requestAnimationFrame</span><span class="p">(</span>frame<span class="p">);</span>
+<span class="p">}</span></pre></div>
+
+    <p>Note that this is not a recursive call. The function <span class="nf">frame</span> runs normally to its end, and <span class="nf">requestAnimationFrame</span> simply tells the system to call it again when ready — handling synchronization automatically, unlike a plain loop.</p>
+
+    <p>Using <span class="k">currentTime</span>, you can trigger time-dependent changes. Here a box moves across the screen and changes color and size after 2s and 4s:</p>
+
+    <div class="code"><pre><span class="comment">// CSS: .box { position: fixed; width: 100px; height: 100px; background-color: red; }</span>
+
+<span class="k">const</span> boxElement <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'.box'</span><span class="p">);</span>
+<span class="k">let</span> leftPos <span class="o">=</span> <span class="kw">0</span><span class="p">;</span>
+
+<span class="nf">animationLoop</span><span class="p">();</span>
+
+<span class="k">function</span> <span class="nf">animationLoop</span><span class="p">(</span>currentTime<span class="p">) {</span>
+    boxElement<span class="o">.</span>style<span class="o">.</span>left <span class="o">=</span> <span class="s">`<span class="p">${</span>leftPos<span class="p">}</span>px`</span><span class="p">;</span>
+    leftPos <span class="o">=</span> leftPos <span class="o">+</span> <span class="kw">1</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span>currentTime <span class="o">&gt;</span> <span class="kw">2000</span><span class="p">)</span> boxElement<span class="o">.</span>style<span class="o">.</span>backgroundColor <span class="o">=</span> <span class="s">'green'</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span>currentTime <span class="o">&gt;</span> <span class="kw">4000</span><span class="p">) {</span>
+        boxElement<span class="o">.</span>style<span class="o">.</span>backgroundColor <span class="o">=</span> <span class="s">'yellow'</span><span class="p">;</span>
+        boxElement<span class="o">.</span>style<span class="o">.</span>width <span class="o">=</span> <span class="s">'200px'</span><span class="p">;</span>
+        boxElement<span class="o">.</span>textContent <span class="o">=</span> <span class="s">'Animated in JavaScript!'</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nf">requestAnimationFrame</span><span class="p">(</span>animationLoop<span class="p">);</span>
+<span class="p">}</span></pre></div>
+
+    <h2>setInterval and clearInterval</h2>
+    <p>Another way to call a function repeatedly is <span class="nf">setInterval</span>. Unlike <span class="nf">requestAnimationFrame</span>, it is not tied to the screen's refresh rate — instead, you specify a fixed delay in milliseconds between each call. It returns an ID that can later be passed to <span class="nf">clearInterval</span> to stop the loop entirely. For example:</p>
+
+    <div class="code"><pre><span class="k">let</span> count <span class="o">=</span> <span class="kw">0</span><span class="p">;</span>
+
+<span class="k">const</span> intervalID <span class="o">=</span> <span class="nf">setInterval</span><span class="p">(</span>tick<span class="p">,</span> <span class="kw">1000</span><span class="p">);</span>  <span class="comment">// call tick() every 1000ms</span>
+
+<span class="k">function</span> <span class="nf">tick</span><span class="p">() {</span>
+    count <span class="o">+=</span> <span class="kw">1</span><span class="p">;</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">`tick <span class="p">${</span>count<span class="p">}</span>`</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span>count <span class="o">===</span> <span class="kw">5</span><span class="p">) {</span>
+        <span class="nf">clearInterval</span><span class="p">(</span>intervalID<span class="p">);</span>  <span class="comment">// stop after 5 ticks</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre></div>
+
+    <p><span class="nf">setInterval</span> is suited for tasks that need to happen at a fixed, predictable rate regardless of rendering — polling a value, updating a clock, or triggering periodic logic. For visual animations however, <span class="nf">requestAnimationFrame</span> is always preferred, as it stays in sync with the screen and pauses automatically when the tab is hidden.</p>
+
+    <h2>Interaction and Animation</h2>
+    <p>Events and animation loops can be combined. User interactions update some state, and the animation loop reads that state every frame. A key rule: there is only ever <strong>one animation loop</strong> for the whole page — it updates everything. For example, here clicks create falling discs, each stored in an array that the loop updates every frame:</p>
+
+    <div class="code"><pre><span class="comment">// CSS: .circle { background-color: cyan; width: 100px; height: 100px;</span>
+<span class="comment">//               position: fixed; border-radius: 50%; }</span>
+
+<span class="k">const</span> radius <span class="o">=</span> <span class="kw">50</span><span class="p">;</span>
+<span class="k">const</span> discs <span class="o">=</span> <span class="p">[];</span>   <span class="comment">// stores { element, y } for each disc</span>
+
+document<span class="o">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> createDisc<span class="p">);</span>
+<span class="nf">animationLoop</span><span class="p">();</span>
+
+<span class="k">function</span> <span class="nf">createDisc</span><span class="p">(</span>event<span class="p">) {</span>
+    <span class="k">const</span> el <span class="o">=</span> document<span class="o">.</span><span class="nf">createElement</span><span class="p">(</span><span class="s">'div'</span><span class="p">);</span>
+    el<span class="o">.</span>classList<span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="s">'circle'</span><span class="p">);</span>
+    document<span class="o">.</span>body<span class="o">.</span><span class="nf">appendChild</span><span class="p">(</span>el<span class="p">);</span>
+    <span class="k">const</span> y <span class="o">=</span> event<span class="o">.</span>clientY<span class="p">;</span>
+    el<span class="o">.</span>style<span class="o">.</span>left <span class="o">=</span> <span class="s">`<span class="p">${</span>event<span class="o">.</span>clientX <span class="o">-</span> radius<span class="p">}</span>px`</span><span class="p">;</span>
+    discs<span class="o">.</span><span class="nf">push</span><span class="p">({</span> element<span class="o">:</span> el<span class="p">,</span> y <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nf">animationLoop</span><span class="p">() {</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> disc <span class="k">of</span> discs<span class="p">) {</span>
+        disc<span class="o">.</span>y <span class="o">+=</span> <span class="kw">2</span><span class="p">;</span>
+        disc<span class="o">.</span>element<span class="o">.</span>style<span class="o">.</span>top <span class="o">=</span> <span class="s">`<span class="p">${</span>disc<span class="o">.</span>y <span class="o">-</span> radius<span class="p">}</span>px`</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nf">requestAnimationFrame</span><span class="p">(</span>animationLoop<span class="p">);</span>
+<span class="p">}</span></pre></div>
+
+    <h2>Canvas</h2>
+    <p>For more complex graphics, JavaScript provides the <span class="p">&lt;</span><span class="nt">canvas</span><span class="p">&gt;</span> element — a bitmap drawing surface. Drawing is not done directly on the element, but through a <strong>rendering context</strong> obtained with <span class="nf">getContext</span>. The <span class="s">'2d'</span> context gives access to primitives: rectangles, lines, arcs, images, and more. For example:</p>
+
+    <div class="code"><pre><span class="comment">// HTML: &lt;canvas&gt;&lt;/canvas&gt;</span>
+
+<span class="k">const</span> canvasElement <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'canvas'</span><span class="p">);</span>
+<span class="k">const</span> ctx <span class="o">=</span> canvasElement<span class="o">.</span><span class="nf">getContext</span><span class="p">(</span><span class="s">'2d'</span><span class="p">);</span>
+
+ctx<span class="o">.</span>canvas<span class="o">.</span>width  <span class="o">=</span> <span class="kw">600</span><span class="p">;</span>
+ctx<span class="o">.</span>canvas<span class="o">.</span>height <span class="o">=</span> <span class="kw">600</span><span class="p">;</span>
+
+<span class="comment">// Filled rectangle</span>
+ctx<span class="o">.</span>fillStyle <span class="o">=</span> <span class="s">'lightgray'</span><span class="p">;</span>
+ctx<span class="o">.</span><span class="nf">fillRect</span><span class="p">(</span><span class="kw">0</span><span class="p">,</span> <span class="kw">0</span><span class="p">,</span> <span class="kw">600</span><span class="p">,</span> <span class="kw">600</span><span class="p">);</span>
+
+<span class="comment">// Stroked path (lines)</span>
+ctx<span class="o">.</span>strokeStyle <span class="o">=</span> <span class="s">'red'</span><span class="p">;</span>
+ctx<span class="o">.</span><span class="nf">beginPath</span><span class="p">();</span>
+ctx<span class="o">.</span><span class="nf">moveTo</span><span class="p">(</span><span class="kw">500</span><span class="p">,</span> <span class="kw">150</span><span class="p">);</span>
+ctx<span class="o">.</span><span class="nf">lineTo</span><span class="p">(</span><span class="kw">200</span><span class="p">,</span> <span class="kw">300</span><span class="p">);</span>
+ctx<span class="o">.</span><span class="nf">stroke</span><span class="p">();</span>
+
+<span class="comment">// Circle (arc)</span>
+ctx<span class="o">.</span>fillStyle <span class="o">=</span> <span class="s">'salmon'</span><span class="p">;</span>
+ctx<span class="o">.</span><span class="nf">beginPath</span><span class="p">();</span>
+ctx<span class="o">.</span><span class="nf">arc</span><span class="p">(</span><span class="kw">400</span><span class="p">,</span> <span class="kw">400</span><span class="p">,</span> <span class="kw">50</span><span class="p">,</span> <span class="kw">0</span><span class="p">,</span> <span class="kw">2</span> <span class="o">*</span> Math<span class="o">.</span>PI<span class="p">);</span>
+ctx<span class="o">.</span><span class="nf">fill</span><span class="p">();</span></pre></div>
+
+    <h2>Sprites</h2>
+    <p>A <strong>sprite</strong> is a series of images depicting an animation — a walking character, an explosion, and so on. They are usually stored as a grid of frames packed into a single image file. Displaying a sprite means drawing only the relevant portion of that image using <span class="nf">ctx.drawImage</span>, which accepts source offset and dimensions alongside destination coordinates. Cycling through each portion frame by frame inside a <span class="nf">requestAnimationFrame</span> loop produces the animation. For example:</p>
+
+    <div class="code"><pre><span class="k">const</span> ctx <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'canvas'</span><span class="p">).</span><span class="nf">getContext</span><span class="p">(</span><span class="s">'2d'</span><span class="p">);</span>
+<span class="k">const</span> img <span class="o">=</span> <span class="k">new</span> <span class="nf">Image</span><span class="p">();</span>
+img<span class="o">.</span>src <span class="o">=</span> <span class="s">'bird.png'</span><span class="p">;</span>
+img<span class="o">.</span>onload <span class="o">=</span> displaySprite<span class="p">;</span>
+
+<span class="k">let</span> idx <span class="o">=</span> <span class="kw">0</span><span class="p">;</span>
+<span class="k">const</span> w <span class="o">=</span> <span class="kw">240</span><span class="p">,</span> h <span class="o">=</span> <span class="kw">314</span><span class="p">;</span>  <span class="comment">// size of one frame</span>
+
+<span class="k">function</span> <span class="nf">displaySprite</span><span class="p">() {</span>
+    ctx<span class="o">.</span><span class="nf">clearRect</span><span class="p">(</span><span class="kw">0</span><span class="p">,</span> <span class="kw">0</span><span class="p">,</span> ctx<span class="o">.</span>canvas<span class="o">.</span>width<span class="p">,</span> ctx<span class="o">.</span>canvas<span class="o">.</span>height<span class="p">);</span>
+
+    idx <span class="o">=</span> <span class="p">(</span>idx <span class="o">+</span> <span class="kw">1</span><span class="p">)</span> <span class="o">%</span> <span class="kw">22</span><span class="p">;</span>              <span class="comment">// cycle through 22 frames</span>
+    <span class="k">const</span> srcX <span class="o">=</span> <span class="p">(</span>idx <span class="o">%</span> <span class="kw">5</span><span class="p">)</span> <span class="o">*</span> w<span class="p">;</span>        <span class="comment">// column in the sprite sheet</span>
+    <span class="k">const</span> srcY <span class="o">=</span> Math<span class="o">.</span><span class="nf">floor</span><span class="p">(</span>idx <span class="o">/</span> <span class="kw">5</span><span class="p">)</span> <span class="o">*</span> h<span class="p">;</span> <span class="comment">// row</span>
+
+    ctx<span class="o">.</span><span class="nf">drawImage</span><span class="p">(</span>img<span class="p">,</span>
+        srcX<span class="p">,</span> srcY<span class="p">,</span> w<span class="p">,</span> h<span class="p">,</span>   <span class="comment">// source: which frame to cut</span>
+        <span class="kw">0</span><span class="p">,</span> <span class="kw">0</span><span class="p">,</span> w<span class="p">,</span> h           <span class="comment">// destination: where to draw it</span>
+    <span class="p">);</span>
+
+    <span class="nf">requestAnimationFrame</span><span class="p">(</span>displaySprite<span class="p">);</span>
+<span class="p">}</span></pre></div>
+    </div>
+
+    <br>
+
+    <div id="API" style="display: none;">
+    <h1>Web APIs</h1>
+    <p>So far, the content of your webpages has been fully defined locally in HTML and JavaScript. But browsers can naturally communicate with external resources over the network — and <strong>Web APIs</strong> (Application Programming Interfaces) are the standard way to do this from code, allowing you to request and use data from remote servers automatically.</p>
+
+    <h2>Querying a URL</h2>
+    <p>The simplest form of Web API interaction consists in embedding parameters directly into a URL. For instance, a search query on a website can often be expressed as:</p>
+
+    <div class="code"><pre>https://some-service.com/search<span class="o">?</span>q<span class="o">=</span>butterfly<span class="o">&amp;</span>lang<span class="o">=</span>en</pre></div>
+
+    <p>The part before the <span class="s">?</span> is the <strong>endpoint</strong> — the address of the resource. What follows are the <strong>query parameters</strong>, formatted as <span class="s">key=value</span> pairs separated by <span class="s">&amp;</span>. Many public APIs work this way, making them easy to test directly in your browser's address bar.</p>
+
+    <h2>JSON</h2>
+    <p>When an API returns data rather than an image or a page, it needs a structured text format that both the server and the client can read. Two formats are commonly used: XML and JSON.</p>
+    <ul>
+        <li><strong>XML</strong> (eXtensible Markup Language) is an older, tag-based format — verbose but strict and well-validated.</li>
+        <li><strong>JSON</strong> (JavaScript Object Notation) is a more recent, curly-bracket format, lighter and more readable. It maps directly onto JavaScript objects, making it the standard choice for web APIs today.</li>
+    </ul>
+
+    <p>A JSON response looks like a JavaScript object literal — keys and values, nestable, supporting strings, numbers, arrays, and booleans:</p>
+
+    <div class="code"><pre><span class="p">{</span>
+    <span class="s">"name"</span><span class="o">:</span> <span class="s">"Alice"</span><span class="p">,</span>
+    <span class="s">"age"</span><span class="o">:</span> <span class="kw">25</span><span class="p">,</span>
+    <span class="s">"scores"</span><span class="o">:</span> <span class="p">[</span><span class="kw">14</span><span class="p">,</span> <span class="kw">17</span><span class="p">,</span> <span class="kw">12</span><span class="p">],</span>
+    <span class="s">"address"</span><span class="o">:</span> <span class="p">{</span> <span class="s">"city"</span><span class="o">:</span> <span class="s">"Paris"</span><span class="p">,</span> <span class="s">"zip"</span><span class="o">:</span> <span class="s">"75001"</span> <span class="p">}</span>
+<span class="p">}</span></pre></div>
+
+    <br>
+    <h2>Fetching Data with <span class="nf">fetch</span></h2>
+    <p>The built-in <span class="nf">fetch</span> function contacts a server at a given URL and runs a callback once the response arrives. Crucially, this happens <strong>asynchronously</strong> — the rest of your code keeps running while the request is in flight, and the callback is only triggered when the server replies. You cannot assume a precise moment when the data will be available.</p>
+
+    <p>The response from <span class="nf">fetch</span> is a raw HTTP object, not yet usable as JavaScript data. Calling <span class="nf">.json()</span> on it parses the response body into an actual JavaScript structure. Both steps are chained using <span class="nf">.then()</span>, which passes the result of one function into the next. For example:</p>
+
+    <div class="code"><pre><span class="k">const</span> url <span class="o">=</span> <span class="s">'https://some-service.com/api/data'</span><span class="p">;</span>
+
+<span class="nf">fetch</span><span class="p">(</span>url<span class="p">)</span>
+    <span class="o">.</span><span class="nf">then</span><span class="p">(</span>convertJSON<span class="p">)</span>
+    <span class="o">.</span><span class="nf">then</span><span class="p">(</span>handleData<span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">convertJSON</span><span class="p">(</span>response<span class="p">) {</span>
+    <span class="k">return</span> response<span class="o">.</span><span class="nf">json</span><span class="p">();</span>   <span class="comment">// parses JSON text into a JS object</span>
+<span class="p">}</span>
+
+<span class="k">function</span> <span class="nf">handleData</span><span class="p">(</span>data<span class="p">) {</span>
+    <span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span>data<span class="p">);</span>         <span class="comment">// data is now a regular JS object</span>
+<span class="p">}</span>
+
+<span class="k">console</span><span class="o">.</span><span class="nf">log</span><span class="p">(</span><span class="s">'fetch is called'</span><span class="p">);</span>  <span class="comment">// this prints before handleData runs</span></pre></div>
+
+    <br>
+    <h2>Using the Data in the DOM</h2>
+    <p>Once the data is a JavaScript object, it can be used like any other — looped over, read, and used to build DOM elements dynamically. This is how external data gets rendered as actual page content. For example, if the API returns a list of items under a <span class="s">"results"</span> key:</p>
+
+    <div class="code"><pre><span class="k">const</span> body <span class="o">=</span> document<span class="o">.</span><span class="nf">querySelector</span><span class="p">(</span><span class="s">'body'</span><span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">handleData</span><span class="p">(</span>data<span class="p">) {</span>
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> item <span class="k">of</span> data<span class="p">[</span><span class="s">'results'</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">const</span> el <span class="o">=</span> document<span class="o">.</span><span class="nf">createElement</span><span class="p">(</span><span class="s">'p'</span><span class="p">);</span>
+        el<span class="o">.</span>textContent <span class="o">=</span> item<span class="p">[</span><span class="s">'name'</span><span class="p">];</span>
+        body<span class="o">.</span><span class="nf">appendChild</span><span class="p">(</span>el<span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span></pre></div>
+    </div>
+    <div id="Teaser" style="text-align: center;">
+    <p>⚔️ Defeat the next enemy to unlock the next chapter!</p>
+    </div>
+    <div id="BackButton">Back</div>
+</body>
+    
+</html>

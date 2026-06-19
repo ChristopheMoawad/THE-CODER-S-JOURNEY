@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="CoursesMenu.css">
+    <script src="CssMenu.js" defer></script>
+    <title> CSS </title>
+</head>
+
+<body>
+    <div id = "Structure" style="display:none;">
+        <h1>CSS Structure</h1>
+        <p>CSS stands for Cascading Style Sheets. It is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS is used to control the layout, colors, fonts, and other visual aspects of a web page.</p>
+        <p>CSS is typically written in a separate file with a .css extension, and is linked to the HTML document using the <span class = "p">&lt;</span><span class="nt">link</span><span class="p">&gt;</span> element in the <span class = "p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span> section of the HTML document. For example:</p>
+        <div class = "code">
+            <pre><span></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span>=<span class="s">"stylesheet"</span> <span class="na">type</span>=<span class="s">"text/css"</span> <span class="na">href</span>=<span class="s">"styles.css"</span><span class="p">&gt;</span></pre>
+        </div>
+        <p> CSS consists of rules that define how HTML elements should be displayed. Each rule has a selector and a declaration block. It is written as so:</p>
+        <div class = "code">
+            <pre><span></span><span class="nt">selector</span> <span class="p">{</span> 
+            <span>property1: value;</span> 
+            <span>property2: value;</span> 
+            <span>property3: value;</span>
+        <span class="p">}</span></pre>
+        </div>
+        <p>The selector specifies which HTML elements the rule applies to -- by type of element, class, or ID -- and the declaration block contains one or more declarations that specify the styles to be applied to those elements.</p>
+        <p> On that note, let us define what classes and IDs are:</p>
+        <ul>
+            <li><p>Class: A class is a reusable style that can be applied to multiple elements. It is defined using a period (.) followed by the class name. For example, <code>.my-class</code> would define a class called "my-class". You can then apply this class to any HTML element by adding the class attribute to the element and setting its value to the class name. For example, <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span>=<span class="s">"my-class"</span><span class="p">&gt;</span> would apply the "my-class" styles to that div element.</p></li>
+            <li><p>ID: An ID is a unique identifier that can be applied to a single element. It is defined using a hash symbol (#) followed by the ID name. For example, <code>#my-id</code> would define an ID called "my-id". You can then apply this ID to an HTML element by adding the id attribute to the element and setting its value to the ID name. For example, <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span>=<span class="s">"my-id"</span><span class="p">&gt;</span> would apply the "my-id" styles to that div element.</p></li>
+        </ul>
+        <p>Note that CSS rules are applied in a cascading manner, meaning that each element inherits styles from parent elements, and can have their own specific styles. In case of any conflicts, the more specific rule will be applied, and if multiple rules have the same specificity, the last one defined will take precedence.</p>
+        <p>Additionally, CSS allows combinations of selectors to create more complex and flexible styling rules. The most common combinations are defined as such:</p>
+        <ul>
+            <li><p> <span class="nt">selector1</span><span class="p">,</span> <span class="nt">selector2</span><span class="p">:</span> selects the union of all elements matching either selector </p></li>
+            <li><p> <span class="nt">selector1</span> <span class="p">~</span> <span class="nt">selector2</span><span class="p">:</span> selects all elements matching selector2 that are following siblings of an element matching selector1 </p></li>
+            <li><p> <span class="nt">selector1</span> <span class="p">+</span> <span class="nt">selector2</span><span class="p">:</span> selects all elements matching selector2 that are immediately next siblings of an element matching selector1 </p></li>
+            <li><p> <span class="nt">selector1</span> <span class="p">&gt;</span> <span class="nt">selector2</span><span class="p">:</span> selects all elements matching selector2 that are direct children of an element matching selector1 </p></li>
+        </ul>
+        <h2>Other Ways to Include CSS</h2>
+        <p>We have said that CSS is normally written in a separate file with a .css extension. But, it can also be included directly in the HTML document using the <code>&lt;style&gt;</code> element in the <code>&lt;head&gt;</code> section, or also using the style attribute directly on HTML elements. For example:</p>
+        <div class = "code">
+        <pre><span></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+                <span class="nt">h1</span> <span class="p">{</span>
+                <span>color: blue;</span>
+                <span class="p">}</span>
+                <span class="comment">/* CSS rules go here */</span>
+        <span class = "p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span></pre>
+        </div>
+        <p style="text-align: center;">or</p>
+        <div class = "code">
+        <pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span>=<span class="s">"color: blue;"</span><span class="p">&gt;</span>My Heading<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span></pre>
+        </div>
+        <p>However, it is generally recommended to use external stylesheets for better organization and maintainability of your code.</p>
+    </div>
+
+    <div id="VisualImprovements" style="display:none;">
+        <h1>Visual Improvements</h1>
+        <h2>Box Model and Layout</h2>
+        <p>To understand visual improvements in CSS, we need to first understand what elements are represented as: we call it the box model.</p>
+        <p>Every element in CSS is represented as a rectangular box, which consists of four parts: the content, padding, border, and margin.</p>
+        <ul>
+            <li>The content is the actual content of the element, such as text or images. </li>
+            <li>The padding is the space between the content and the border, which can be used to create space around the content. </li>
+            <li>The border is a line that surrounds the padding and content, which can be styled with different colors, widths, and styles. </li>
+            <li>The margin is the space outside the border, which can be used to create space between elements. </li>
+        </ul>
+
+        <h2>Display and Positioning</h2>
+        <p>These boxes can behave differently depending on the CSS properties applied to them.</p>
+        <p>For example, the <code>display</code> property can be used to change how an element is displayed. The most common values for this property are:</p>
+        <ul>
+            <li><span class="nt">block</span>: The element is displayed as a block-level element, which means it takes up the full width of its container and starts on a new line. Examples of block-level elements include <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>, and <code>&lt;p&gt;</code>.</li>
+            <li><span class="nt">inline</span>: The element is displayed as an inline element, which means it only takes up as much width as necessary and does not start on a new line. Examples of inline elements include <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, and <code>&lt;strong&gt;</code>.</li>
+            <li><span class="nt">inline-block</span>: The element is displayed as an inline-block element, which means it behaves like an inline element but can also have block-level properties such as width and height.</li>
+            <li><span class="nt">none</span>: The element is not displayed at all, and does not take up any space on the page.</li>
+            <li><span class="nt">flex</span>: The element is displayed as a flex container, enabling a <strong>one-dimensional</strong> layout model. Child elements are arranged along a single axis — either a row or a column — and can be flexibly aligned, spaced, and sized. It is best suited for laying out items in a single direction, such as navigation bars or button groups.</li>
+            <li><span class="nt">grid</span>: The element is displayed as a grid container, enabling a <strong>two-dimensional</strong> layout model. Unlike flexbox, child elements are arranged across both rows <em>and</em> columns simultaneously, making it ideal for more complex page layouts such as dashboards or image galleries.</li>
+        </ul>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Block_and_inline_layout" target="_blank">Learn more about display property</a>
+        <br>
+
+        <p>Another important property is the <code>position</code> property, which can be used to change how an element is positioned on the page. The most common values for this property are:</p>
+        <ul>
+            <li><span class="nt">static</span>: The element is positioned according to the normal flow of the document. This is the default value for all elements.</li>
+            <li><span class="nt">relative</span>: The element is positioned relative to its normal position, with a certain offset defined by the <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> properties.</li>
+            <li><span class="nt">absolute</span>: The element is positioned relative to its nearest positioned ancestor,also using the <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> properties.</li>
+            <li><span class="nt">fixed</span>: The element is positioned relative to the viewport, which means it stays in the same position even when the page is scrolled.</li>
+        </ul>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position" target="_blank">Learn more about position property</a>
+        <br><br>
+
+        <h2>Predefined Semantics and Generic Elements</h2>
+        <p>We have seen that some elements have predefined semantics, which means they have a specific meaning in the context of the HTML document. Still, in some contexts we would like to use elemnts that do not have predefined semantics. This is where the <code>div</code> and <code>span</code> elements come in handy:</p>
+        <ul>
+            <li><span class="nt">&lt;div&gt;</span>: The div element is a block-level element that is used to group other elements together. It has no predefined semantics, which means it does not have any specific meaning in the context of the HTML document. It is often used as a container for other elements, and can be styled with CSS to create different layouts and designs.</li>
+            <li><span class="nt">&lt;span&gt;</span>: The span element is an inline element that is used to group text or other inline elements together. Like the div element, it has no predefined semantics. It is often used to apply styles to specific parts of text or to group inline elements together for styling purposes.</li>
+        </ul>
+
+        <h2>Fonts, colors, alignments, units and sizing</h2>
+        <p>CSS provides a wide range of properties for controlling the fonts, colors, and sizes of elements on a web page. Some of the most commonly used properties include:</p>
+        <ul>
+            <li><span class="nt">font-family</span>: This property is used to specify the font of an element. It can take a list of font names as its value, and the browser will use the first available font in the list. For example, <code>font-family: Arial, sans-serif;</code> would specify that the element should use the Arial font if it is available, and if not, it should use a generic sans-serif font.</li>
+            <li><span class="nt">color</span>: This property is used to specify the color of text or other elements. It can take a variety of color values, including named colors (e.g., <code>red</code>, <code>blue</code>), hexadecimal color codes (e.g., <code>#ff0000</code> for red), and RGB color values (e.g., <code>rgb(255, 0, 0)</code> for red).</li>
+            <li><span class="nt">background-color</span>: This property is used to specify the background color of an element. It can take the same color values as the <code>color</code> property.</li>
+            <li><span class="nt">font-size</span>: This property is used to specify the size of text. </li>
+            <li><span class="nt">text-align</span>: This property is used to specify the horizontal alignment of text. It can take the values <code>left</code>, <code>right</code>, <code>center</code>, and <code>justify</code>.</li>
+            <li><span class="nt">vertical-align</span>: This property is used to specify the vertical alignment of inline elements. It can take the values <code>top</code>, <code>middle</code>, <code>bottom</code>, and <code>baseline</code>.</li>
+        </ul>
+        <p>To help with alignment, the <span class="nt">margin</span> property can be set to <span class="nt">auto</span>, which centers the element horizontally within its parent container. This can also be applied individually using <span class="nt">margin-left</span>, <span class="nt">margin-right</span>, <span class="nt">margin-top</span>, and <span class="nt">margin-bottom</span>.</p>
+        <p>CSS can use various units (absolute and relative) to set the size of elements.</p>
+        <ul>
+            <li><span class="nt">px</span>: This is an absolute unit that represents a fixed number of pixels. For example, <code>font-size: 16px;</code> would set the font size to 16 pixels.</li>
+            <li><span class="nt">cm/mm/pt/pc</span>: These are absolute units that represent centimeters, millimeters, points, and picas respectively. For example, <code>font-size: 1cm;</code> would set the font size to 1 centimeter.</li>
+            <li><span class="nt">em</span>: This is a relative unit that represents the font size of the parent element. For example, <code>font-size: 2em;</code> would set the font size to twice the font size of the parent element.</li>
+            <li><span class="nt">rem</span>: This is a relative unit that represents the font size of the root element (usually the <code>&lt;html&gt;</code> element). For example, <code>font-size: 1.5rem;</code> would set the font size to 1.5 times the font size of the root element.</li>
+            <li><span class="nt">%</span>: This is a relative unit that represents a percentage of the parent element's size. For example, <code>width: 50%;</code> would set the width of an element to 50% of its parent element's width.</li>
+            <li><span class="nt">vw/vh</span>: These are relative units that represent a percentage of the viewport's width or height. For example, <code>width: 50vw;</code> would set the width of an element to 50% of the viewport's width.</li>
+        </ul>
+        <p>CSS also allows to set constraints on the size of elements, such as maximum and minimum widths and heights with <code>max-width</code>, <code>min-width</code>, <code>max-height</code>, and <code>min-height</code>. They are used in case an element's size is relative to its parent or the viewport for example.</p>
+
+        <h2>CSS Animations</h2>
+        <p>CSS presents pseudo-classes that allow you to define different styles for different states of an element, such as when it is hovered over, focused, or clicked. They are written as such: <span class="nt">selector-name:hover</span>, <span class="nt">selector-name:focus</span>, <span class="nt">selector-name:active</span>.</p>
+        <p>By default, the new appearance take effectimmediately. The <a href = 'https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions'>transition</a> property allows to generate smooth change between two appearances.</p>
+        <p>Another way to animate elements is by using CSS @keyframes, which allow you to define a sequence of styles that an element will transition through over time. For example:</p>
+        <div class = "code">
+            <pre><span></span><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="nt">@keyframes</span> <span class="nt">example</span> <span class="p">{</span>
+        <span>0%</span> <span class="p">{</span>
+            <span>background-color: red;</span>
+        <span class="p">}</span>
+        <span>50%</span> <span class="p">{</span>
+            <span>background-color: yellow;</span>
+        <span class="p">}</span>
+        <span>100%</span> <span class="p">{</span>
+            <span>background-color: green;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span></span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></pre>
+        </div>
+        <p> This code defines a simple animation that transitions the background color of an element from red to yellow to green over time.</p>
+    </div>
+    <div id="Responsiveness" style="display:none;"> 
+        <h1>Responsiveness</h1>
+        <p>A website can be seen in a variety of devices and screen sizes. In order to provide a good user experience, websites must be designed to adapt to different screen sizes and orientations. We say that they must be responsive.</p>
+        <p>A responsive website adjusts its layout, content, and functionality based on the characteristics of the device being used to access it, such as the screen size, resolution, and orientation.</p>
+        <p>To create a responsive website, developers use a combination of techniques, including:</p>
+        <ul>
+            <li><p>Relative units: This technique involves using relative units such as percentages, ems, or rems to define the size and position of elements. This allows the layout to adjust based on the screen size and resolution.</p></li>
+            <li><p>Media queries: This technique involves using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">CSS media queries</a> to apply different styles based on the characteristics of the device being used to access the website. For example, developers can use media queries to apply different styles for mobile devices versus desktop devices.</p>
+                <p>Media queries are written as such:</p>
+                <div class = "code">
+                <pre><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="nt">@media</span> <span class="p">(</span><span class="nt">max-width</span><span class="p">:</span> <span class="mi">600</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c">/* Styles for mobile devices */</span>
+    <span class="p">}</span>
+    <span class="nt">@media</span> <span class="p">(</span><span class="nt">max-width</span><span class="p">:</span> <span class="mi">900</span><span class="kt">px</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c">/* Styles for tablet devices */</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span></pre>
+                </div>
+                <p>This media query applies the styles inside the curly braces only when the screen width is 600 pixels or less, which is typically the case for mobile devices.</p>
+            </li>
+        </ul>
+    </div>
+    <div id="Teaser" style="text-align: center;">
+    <p>⚔️ Defeat the next enemy to unlock the next chapter!</p>
+    </div>
+    <div id="BackButton">Back</div>
+</body>
+
+</html>

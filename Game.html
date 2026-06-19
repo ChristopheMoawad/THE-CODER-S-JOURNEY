@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="Game.css">
+    <script src="Game.js" defer></script>
+    <title> Game </title>
+</head>
+
+<body>
+    <div id="confrontation">
+        <img id="BattleBackground" src="BattleBackground.png" alt="Battle Background">
+        <button id="PauseButton">Pause</button>
+        <div id="PauseMenu">
+            <button id="ResumeButton">Resume</button>
+            <button id="GameMenuButton">Game Menu</button>
+        </div>
+        <!-- Player Side -->
+        <div class="player">
+            <div id="attacksWrapper">
+                <div id="EnergyBarContainer">
+                    <div id="PlayerEnergy"></div>
+                    <span id="EnergyText"></span>
+                </div>
+                <div id="attacksDiv" class="attacks-container"></div>
+            </div>
+            <img id="Player" src="Coder1.png" alt="Player Image">
+
+            <div id="PlayerHealthContainer">
+                <div id="PlayerHealth"></div>
+                <span id="PlayerHealthText"></span>
+            </div>
+            <p id="Playername">Player1</p>
+        </div>
+
+        <!-- Enemy Side -->
+        <div class="enemy">
+            <img id="Enemy" src="Enemy1.png" alt="Enemy Image">
+
+            <div id="EnemyHealthContainer">
+                <div id="EnemyHealth"></div>
+                <span id="EnemyHealthText"></span>
+            </div>
+            <p id="Enemyname">Enemy1</p>
+        </div>
+
+        <!-- Turn Indicator -->
+        <div class="currentTurn">
+            <p id="TurnIndicator">Player's Turn</p>
+        </div>
+
+    </div>
+</body>
+
+</html>

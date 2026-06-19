@@ -1,0 +1,336 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+}
+
+/* MAIN BATTLE BOX */
+#confrontation {
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    position: relative;
+}
+
+#BattleBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* behind all other content */
+}
+
+/* BACK BUTTON */
+#PauseButton {
+    position: absolute;
+    top: 0.2vw;
+    left: 0.2vw;
+    cursor: pointer;
+}
+
+/* PLAYER + ENEMY BASE STYLE */
+.player, .enemy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: relative;
+}
+
+/* POSITIONING */
+.player {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.enemy {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* IMAGES */
+.player img {
+    width: 38vw;
+    height: 66vh;
+    translate: -1vw 8.5vw; 
+}
+
+.enemy img {
+    width: 38vw;
+    height: 48vh;
+    translate: -2vw 3vw;
+}
+
+/* Bar track containers */
+#PlayerHealthContainer,
+#EnemyHealthContainer,
+#EnergyBarContainer {
+    position: relative;
+    width: 20vw;
+    height: 2vh;
+    background-color: #333;
+    border-radius: 0.5vw;
+    overflow: visible;
+}
+
+/* The fill bars */
+#PlayerHealth,
+#EnemyHealth,
+#PlayerEnergy {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5vw;
+    transition: width 0.3s ease;
+}
+
+/* Starting colors */
+#PlayerHealth { background-color: limegreen; }
+#EnemyHealth  { background-color: limegreen; }
+#PlayerEnergy { background-color: dodgerblue; }
+
+/* The text labels centered over the track */
+#PlayerHealthText,
+#EnemyHealthText,
+#EnergyText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1vw;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+/* NAME */
+.player p, .enemy p {
+    margin: 0.5vw 0 0 0;
+    color: white;
+}
+
+/* TURN INDICATOR */
+.currentTurn {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vw;
+    z-index: 1;
+}
+#TurnIndicator {
+    display: inline-block;
+    background-color: gold;
+    width:50vw;
+    height: 4vh;
+    color: white;
+    font-size: 2vw;
+    text-align: center;
+}
+
+.attacks-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 1vw;
+    width: 20vw;
+    padding: 10px;
+    z-index: 5;
+}
+
+#attacksWrapper {
+    order: -1;              /* sit above the player image in the flex column */
+    margin-bottom: -8vw;    /* overlap down onto the player */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5vw;
+    z-index: 5;
+}
+
+.attacks-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.attack-btn {
+  flex: 0 0 31%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  padding: 0.5vw;
+  border: 0.2vw solid #444;
+  background: #111;
+  color: white;
+  border-radius: 1vw;
+
+  transform: scale(0.95);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0.5;
+}
+
+.active-attack {
+  transform: scale(1.15);
+  border-color: gold;
+  box-shadow: 0 0 10px gold;
+  z-index: 2;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.inventory-btn {
+  flex: 0 0 31%;
+  padding: 0.5vw;
+  border: 0.2vw solid #444;
+  background: #111;
+  color: white;
+  border-radius: 1vw;
+}
+.inventory-btn:hover {
+  border-color: gold;
+  box-shadow: 0 0 10px gold;
+  cursor: pointer;
+}
+
+.back-btn {
+  flex: 0 0 31%;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+
+  padding: 0.5vw;
+  border: 0.2vw solid #444;
+  background: #111;
+  color: white;
+  border-radius: 1vw;
+}
+
+.back-btn:hover {
+  border-color: gold;
+  box-shadow: 0 0 10px gold;
+  cursor: pointer;
+}
+
+.spacer {
+  flex: 0 0 50%;
+}
+
+.attack-name {
+  font-weight: bold;
+  font-size: 1vw;
+  margin-bottom: 0.5vw;
+}
+
+.attack-meta ,.attack-cost {
+  font-size: 0.5vw;
+  opacity: 0.7;
+}
+
+@keyframes enemyHit {
+    0%   { filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(7000%) hue-rotate(0deg); }
+    40%  { filter: brightness(10) saturate(0%); }
+    100% { filter: none; }
+}
+
+.enemy-hit {
+    animation: enemyHit 0.4s ease-out;
+}
+
+/* PAUSE MENU */
+#PauseButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 5; /* below pause menu but above other content */
+}
+#PauseMenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* darker for better visibility + rgba is just rgp with "alpha" which is opacity*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 10;
+}
+#PauseMenu button {
+    padding: 1.5vw 3vw;
+    font-size: 1.5vw;
+    margin: 1vw;
+    cursor: pointer;
+    background-color: white;
+    border: 0.2vw solid #333;
+    border-radius: 0.5vw;
+}
+#PauseMenu button:hover {
+    background-color: #ddd;
+}
+
+@media (min-width: 769px) {
+    #Player {
+        transform: translateY(0);
+    }
+
+    #attacksWrapper {
+        margin-bottom: -15vw; 
+    }
+
+    #EnergyDiv {
+        font-size: 1.5vw;
+    }
+
+    #TurnIndicator {
+        width: 50vw;
+        font-size: 2vw;
+    }
+
+    #Playername, #Enemyname {
+        font-size: 1.5vw;
+    }
+
+    #PauseButton {
+    font-size: 2vw;
+}
+
+}
+
+@media (max-width: 768px) {
+
+    #Player {
+        transform: translateY(10%);
+        width: 50vw;
+    }
+
+   #attacksWrapper {
+        margin-bottom: -52vw; 
+    }
+    #EnergyDiv {
+        font-size: 3vw;
+    }
+    .attacks-container {
+        width: 44vw;
+    }
+
+    #TurnIndicator {
+        width: 90vw;
+        font-size: 4vw;
+    }
+}
